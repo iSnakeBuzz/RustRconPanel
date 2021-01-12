@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
+
+/* Importing CSS */
+import './assets/css/theme.css';
+import './assets/css/snake.css';
+import './assets/css/shark.scss';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,37 @@
+html.color-theme-in-transition,
+html.color-theme-in-transition *,
+html.color-theme-in-transition *:before,
+html.color-theme-in-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0s !important;
+}
+
+html {
+  /*Snake Theme Things*/
+  --siteBg: #ffffff;
+
+  --paperColor: #23272a;
+  --paperColor-Light: #3d4347;
+
+  --blackGreen: #0c9215;
+  --whiteGreen: #0fc91b;
+
+  --blue: #5a86ff;
+
+  --white: white;
+  --mutedColor: #d4d4d4;
+  /*Snake theme Things*/
+}
+
+/* Work in progress - html[data-theme="white"] {
+  --backgroundColor: rgba(25, 42, 86, 0.2);
+  --paperColor: #23272a;
+
+  --blackGreen: #0c9215;
+  --whiteGreen: #0fc91b;
+
+  --blue: #5a86ff;
+
+  --white: white;
+  --mutedColor: #d4d4d4;
+} */

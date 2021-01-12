@@ -2,25 +2,28 @@
   "name": "rust-panel",
   "version": "0.1.0",
   "private": true,
+  "main": "./electronApp.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "concurrently": "^5.3.0",
-    "electron": "^11.1.1",
-    "electron-builder": "^22.9.1",
     "electron-is-dev": "^1.2.0",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "wait-on": "^5.2.1",
     "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "wait-on": "^5.2.1",
+    "electron": "^11.1.1",
+    "concurrently": "^5.3.0",
+    "electron-builder": "^22.9.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "electron-dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [

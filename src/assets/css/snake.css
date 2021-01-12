@@ -1,0 +1,86 @@
+body {
+  background-color: var(--siteBg);
+
+  padding-top: 32px;
+  margin: 0;
+}
+
+.chrome-tool {
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 2px;
+
+  color: white;
+  background-color: var(--paperColor);
+}
+
+.chrome-tool-inside {
+  padding: 5px 10px;
+
+  display: flex;
+  place-items: center;
+
+  -webkit-app-region: drag;
+}
+
+.chrome-buttons {
+  display: flex;
+  place-items: center;
+  -webkit-app-region: no-drag;
+}
+
+.chrome-buttons > * {
+  margin: 0 5px;
+}
+.chrome-buttons > :first-child {
+  margin-left: 0;
+}
+
+.chrome-buttons > :last-child {
+  margin-right: 0;
+}
+
+.chrome-tool-title {
+  display: flex;
+  place-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.close-button {
+  fill: #ff5f57;
+}
+
+.close-button:hover {
+  fill: #c53028;
+}
+
+.maximize-button {
+  fill: #ffbe2f;
+}
+
+.maximize-button:hover {
+  fill: #a87300;
+}
+
+.minimize-button {
+  fill: #28ca42;
+}
+
+.minimize-button:hover {
+  fill: #008516;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
