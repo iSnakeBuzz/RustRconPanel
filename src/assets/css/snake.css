@@ -1,10 +1,13 @@
 body {
   background-color: var(--siteBg);
 
+  padding-left: 72px;
   padding-top: 32px;
+
   margin: 0;
 }
 
+/* Chrome tool */
 .chrome-tool {
   width: 100%;
 
@@ -77,6 +80,48 @@ body {
   fill: #008516;
 }
 
+/* Navbar */
+
+.navbar {
+  width: 72px;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+
+  padding: 10px 0;
+
+  color: white;
+  background-color: var(--paperColor);
+}
+
+.navbar > * {
+  margin: 15px 0;
+}
+
+.navbar > :first-child {
+  margin-top: 0;
+}
+
+.navbar > :last-child {
+  margin-bottom: 0;
+}
+
+.server-item {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.server-item .img {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  background-color: var(--siteBg);
+}
+
+/* Utilities */
 .ml-auto {
   margin-left: auto;
 }

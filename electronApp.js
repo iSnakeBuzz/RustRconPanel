@@ -1,11 +1,7 @@
-const electron = require('electron');
-const { ipcMain } = electron;
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 
-/* Creating Electron Window & APP */
-const BrowserWindow = electron.BrowserWindow;
-const app = electron.app;
 
 let mainWindow;
 
@@ -15,8 +11,8 @@ const createWindow = () => {
     mainWindow = new BrowserWindow({
         minWidth: 800,
         minHeight: 450,
-        width: 800,
-        height: 450,
+        width: 940,
+        height: 800,
         darkTheme: true,
         center: true,
         frame: false,
@@ -27,7 +23,7 @@ const createWindow = () => {
     mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './build/index.html')}`);
 
     /* Enable dev tools if isDev is true. (CTRL + SHIFT + I opens the dev tools manually) */
-    if (isDev) mainWindow.webContents.openDevTools();
+    // if (isDev) mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', () => mainWindow = null);
 }
