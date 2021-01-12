@@ -1,4 +1,5 @@
 const electron = require('electron');
+const { ipcMain } = electron;
 const path = require('path');
 const isDev = require('electron-is-dev');
 
@@ -19,6 +20,7 @@ const createWindow = () => {
         darkTheme: true,
         center: true,
         frame: false,
+        webPreferences: { nodeIntegration: true }
     });
 
     /* Loading website. If dev, loads a local URL, otherwise runs from build folder. */
@@ -42,4 +44,24 @@ app.on('activate', () => {
     if (mainWindow === null) {
         createWindow();
     }
+});
+
+/* IPC communicatino with FrontEnd */
+ipcMain.on('minimize', (e, arg) => {
+    mainWindow.minimize();
+
+    /* I return a value to prevent bugs :) */
+    e.returnValue = "pong";
+});
+
+ipcMain.on('maximize', (e, arg) => {
+    if (!mainWindow.isMaximized()) mainWindow.maximize();
+    else mainWindow.unmaximize();
+
+    e.returnValue = "pong";
+});
+
+ipcMain.on('close', (e, arg) => {
+    app.quit();
+    e.returnValue = "pong";
 });

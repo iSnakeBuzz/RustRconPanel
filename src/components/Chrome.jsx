@@ -1,9 +1,22 @@
 import React from 'react';
-import Close from '../assets/images/Close.svg'
-import Maximize from '../assets/images/Maximize.svg'
-import Minimize from '../assets/images/Minimize.svg'
+
+const electron = window.require("electron")
+const { ipcRenderer } = electron;
 
 const Chrome = () => {
+
+    const handleMinimize = () => {
+        ipcRenderer.sendSync('minimize', 'ping');
+    }
+
+    const handleMaximize = () => {
+        ipcRenderer.sendSync('maximize', 'ping');
+    }
+
+    const handleClose = () => {
+        ipcRenderer.sendSync('close', 'ping');
+    }
+
     return (
         <div className="chrome-tool">
             <div className="chrome-tool-inside">
@@ -14,15 +27,15 @@ const Chrome = () => {
                 </div>
 
                 <div className="ml-auto chrome-buttons">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="minimize-button pointer" width="14" height="14" viewBox="0 0 12 12">
+                    <svg xmlns="http://www.w3.org/2000/svg" onClick={handleMinimize} className="minimize-button pointer" width="14" height="14" viewBox="0 0 12 12">
                         <rect width="12" height="12" rx="6" />
                     </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" className="maximize-button pointer" width="14" height="14" viewBox="0 0 12 12">
+                    <svg xmlns="http://www.w3.org/2000/svg" onClick={handleMaximize} className="maximize-button pointer" width="14" height="14" viewBox="0 0 12 12">
                         <rect width="12" height="12" rx="6" />
                     </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" className="close-button pointer" width="14" height="14" viewBox="0 0 12 12">
+                    <svg xmlns="http://www.w3.org/2000/svg" onClick={handleClose} className="close-button pointer" width="14" height="14" viewBox="0 0 12 12">
                         <rect width="12" height="12" rx="6" />
                     </svg>
                 </div>
