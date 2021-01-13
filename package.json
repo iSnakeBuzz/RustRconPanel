@@ -2,17 +2,22 @@
   "name": "rust-panel",
   "version": "0.1.0",
   "private": true,
-  "main": "./electronApp.js",
+  "main": "./public/electron.js",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "cross-env": "^7.0.3",
     "electron-is-dev": "^1.2.0",
+    "electron-serve": "^1.0.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-transition-group": "^4.4.1",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
@@ -23,7 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && electron-builder",
+    "electron-build": "electron-builder",
     "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
@@ -31,6 +37,12 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "build": {
+    "appId": "com.isnakebuzz.rust-panel",
+    "mac": {
+      "category": "com.isnakebuzz.rust.desktop"
+    }
   },
   "browserslist": {
     "production": [

@@ -8,15 +8,15 @@ html.color-theme-in-transition *:after {
 
 html {
   /*Snake Theme Things*/
-  --siteBg: #ffffff;
+  --siteBg: #081331;
 
   --paperColor: #23272a;
-  --paperColor-Light: #3d4347;
+  --paperColor-Light: #36393f;
 
   --blackGreen: #0c9215;
   --whiteGreen: #0fc91b;
 
-  --blue: #5a86ff;
+  --blue: #6787e0;
 
   --white: white;
   --mutedColor: #d4d4d4;
