@@ -3,6 +3,7 @@ const path = require('path');
 const isDev = require('electron-is-dev');
 const serve = require('electron-serve');
 const serveReact = serve({ directory: path.join(__dirname, '../build') });
+require('./electron/ipcmc')
 
 let mainWindow;
 
@@ -45,20 +46,28 @@ app.on('activate', () => {
 
 /* IPC communicatino with FrontEnd */
 ipcMain.on('minimize', (e, arg) => {
-    mainWindow.minimize();
+    let focusedWindow = BrowserWindow.getFocusedWindow();
+    focusedWindow.minimize();
 
     /* I return a value to prevent bugs :) */
     e.returnValue = "pong";
 });
 
 ipcMain.on('maximize', (e, arg) => {
-    if (!mainWindow.isMaximized()) mainWindow.maximize();
-    else mainWindow.unmaximize();
+
+    let focusedWindow = BrowserWindow.getFocusedWindow();
+
+    if (!focusedWindow.isMaximized()) focusedWindow.maximize();
+    else focusedWindow.unmaximize();
 
     e.returnValue = "pong";
 });
 
 ipcMain.on('close', (e, arg) => {
-    app.quit();
+    let focusedWindow = BrowserWindow.getFocusedWindow();
+
+    if (focusedWindow.id === mainWindow.id) app.quit();
+    else focusedWindow.close();
+
     e.returnValue = "pong";
 });

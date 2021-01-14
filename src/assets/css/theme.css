@@ -8,7 +8,7 @@ html.color-theme-in-transition *:after {
 
 html {
   /*Snake Theme Things*/
-  --siteBg: #081331;
+  --siteBg: #090E11;
 
   --paperColor: #23272a;
   --paperColor-Light: #36393f;
@@ -19,7 +19,7 @@ html {
   --blue: #6787e0;
 
   --white: white;
-  --mutedColor: #d4d4d4;
+  --mutedColor: #b4b4b4;
   /*Snake theme Things*/
 }
 

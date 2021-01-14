@@ -11,20 +11,21 @@
     "@testing-library/user-event": "^12.1.10",
     "cross-env": "^7.0.3",
     "electron-is-dev": "^1.2.0",
-    "electron-serve": "^1.0.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-transition-group": "^4.4.1",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "wait-on": "^5.2.1",
-    "electron": "^11.1.1",
     "concurrently": "^5.3.0",
-    "electron-builder": "^22.9.1"
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1",
+    "electron-serve": "^1.0.0",
+    "wait-on": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

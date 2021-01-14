@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router, withRouter } from 'react-router-dom';
+import { Route, BrowserRouter as Router, withRouter, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 /* Importing Pages */
 import App from './pages/App';
-import Server from './pages/Server';
+import AddServer from './pages/AddServer';
 
 /* Importing CSS */
 import './assets/css/theme.css';
@@ -20,12 +20,14 @@ import reportWebVitals from './reportWebVitals';
 
 
 /* Adding transitions to the Routes  */
-const Switch = "xd";
 
 ReactDOM.render(
   <ThemeProvider theme={MUITheme}>
     <Router>
-      <App />
+      <Switch>
+        <Route exact path="/add-server" component={AddServer} />
+        <Route path="/" component={App} />
+      </Switch>
     </Router>
   </ThemeProvider>,
   document.getElementById('root')
