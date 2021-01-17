@@ -8,6 +8,8 @@ import { useTheme } from '@material-ui/core';
 import ConsoleTab from '../components/Server/Tabs/ConsoleTab';
 import ServerTab from '../components/Server/Tabs/ServerTab';
 import PlayersTab from '../components/Server/Tabs/PlayersTab';
+import ConfigTab from '../components/Server/Tabs/ConfigTab';
+import SettingsTab from '../components/Server/Tabs/SettingsTab';
 
 const Server = () => {
 
@@ -52,11 +54,11 @@ const Server = () => {
                 </TabPanel>
 
                 <TabPanel value={value} index={3} dir={theme.direction}>
-                    <PlayersTab />
+                    <ConfigTab />
                 </TabPanel>
 
                 <TabPanel value={value} index={4} dir={theme.direction}>
-                    <PlayersTab />
+                    <SettingsTab />
                 </TabPanel>
 
             </SwipeableViews>

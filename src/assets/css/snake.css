@@ -153,6 +153,11 @@ body {
   border-radius: 35%;
 }
 
+.server-item-active .img {
+  background-color: var(--blue);
+  border-radius: 35%;
+}
+
 .serverForm {
   margin-top: 52px;
 }

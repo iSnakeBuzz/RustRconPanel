@@ -9,7 +9,7 @@ Actually is in development and you can see the progress below.
 #### Work in progress screenshots.
 
 - Added the console in the Server section.
-  !['Console'](https://i.imgur.com/idCb8bD.png)
+  !['Console'](https://i.imgur.com/G7rVzB0.png)
 
 - Changed background color for one more nicer. Aslo added a new window to add the new servers.
   !['Changed color'](https://i.imgur.com/5EBMNZT.png)

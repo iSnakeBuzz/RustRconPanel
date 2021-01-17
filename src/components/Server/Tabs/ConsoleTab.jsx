@@ -26,7 +26,7 @@ const ConsoleTab = () => {
 
     const handleClearConsole = (e) => {
         let empty = [];
-        empty.push(<LogItem key={"cleared-console"} date={new Date()} value={"Has been cleared the console."} />);
+        empty.push(<LogItem key={"console-cleared"} date={new Date()} value={"The console has been cleared."} />);
         setLog(empty);
     }
 
