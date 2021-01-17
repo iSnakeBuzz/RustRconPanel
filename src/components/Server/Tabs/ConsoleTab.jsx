@@ -2,26 +2,74 @@ import React from 'react';
 import Terminal from '../Terminal';
 import LogItem from '../Console/LogItem';
 import { Button } from '@material-ui/core';
+import SInfoContext from '../../contexts/SInfoContext';
+
 
 const ConsoleTab = () => {
 
     const [log, setLog] = React.useState([]);
+    const serverSocket = React.useContext(SInfoContext);
 
     React.useEffect(() => {
         console.log('Mounted ConsoleTab');
-        updatelog(makeid(12));
+        updateLog('Loading console...');
 
         return () => {
             console.log('Unmounted ConsoleTab');
         }
     }, []);
 
-    const updatelog = (value) => {
-        let oldLog = [...log];
-        if (oldLog.length >= 200) oldLog.shift();
+    React.useEffect(() => {
+        if (serverSocket === undefined) return;
+        console.log('Listening Socket messages');
 
-        oldLog.push(<LogItem key={value} date={new Date()} value={value} />)
-        setLog(oldLog)
+        serverSocket.onMessage((e) => {
+            const data = JSON.parse(e.data);
+
+            if (data.Identifier < 1000) {
+                console.log('[Socket-Console] Receiving data:', data);
+                if (data.Identifier !== -1) updateLog(data.Message)
+            }
+
+        })
+
+        if (!serverSocket.isReady()) {
+            serverSocket.onOpen((e) => {
+                console.log('[Socket-Debug-Console] The WS has been opened.', e);
+                serverSocket.request('console.tail 128', (data) => {
+                    const messages = JSON.parse(data.Message);
+                    updateLogs(messages);
+                })
+            });
+        } else {
+            serverSocket.request('console.tail 128', (data) => {
+                const messages = JSON.parse(data.Message);
+                updateLogs(messages);
+            });
+        }
+
+
+    }, [serverSocket]);
+
+    const updateLogs = (values) => {
+        let newLog = [];
+
+        values.map((e, i) => {
+            newLog.push(<LogItem key={i} date={new Date()} value={e.Message} />);
+            if (newLog.length >= 200) newLog.shift();
+        })
+
+        setLog(prev => [...prev, newLog]);
+
+    }
+
+    const updateLog = (value) => {
+        let newLog = [];
+
+        newLog.push(<LogItem key={value} date={new Date()} value={value} />);
+        if (newLog.length >= 200) newLog.shift();
+
+        setLog(prev => [...prev, newLog])
     }
 
     const handleClearConsole = (e) => {
@@ -31,7 +79,10 @@ const ConsoleTab = () => {
     }
 
     const handleCommand = (value) => {
-        updatelog(value);
+        if (serverSocket && serverSocket.isReady()) {
+            console.log('Sending command..')
+            serverSocket.sendMessage(value);
+        }
     }
 
     return (

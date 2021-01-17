@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
         <>
             <Chrome />
 
-            <div className="content">
-                <Navbar />
+            <Navbar />
 
+            <div className="content">
                 <main>
                     <div className="main_container">
                         {children}

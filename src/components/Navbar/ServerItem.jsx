@@ -9,7 +9,6 @@ const ServerItem = ({ server }) => {
     const [active, setActive] = React.useState(false);
 
     React.useEffect(() => {
-        console.log("History", history)
         setActive(history.location.pathname == `/server/${server.id}`)
     }, [history.location.pathname]);
 

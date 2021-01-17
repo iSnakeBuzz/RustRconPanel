@@ -7,7 +7,8 @@
 - Added a custom Scrollbar.
 - Added server action buttons.
 - Added a terminal (In test mode)
-- 
+- Started the connections with Websocket
+- Added functionalities to console
 
 # 14/01/2021
 

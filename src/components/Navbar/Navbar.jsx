@@ -31,9 +31,9 @@ const Navbar = () => {
                 <div className="divider" />
             </div>
 
-            {data && JSON.parse(data).map((number, id) => {
-                console.log("Server:", number, id)
-                return (<ServerItem key={id} server={{ img: "https://i.imgur.com/7KMIMiS.png", id: id, name: `${number.name}` }} />);
+            {data && JSON.parse(data).map((server, id) => {
+                console.log("Server:", server, id)
+                return (<ServerItem key={id} server={{ img: server.img ? server.img : "https://i.imgur.com/7KMIMiS.png", id: id, name: `${server.name}` }} />);
             })}
 
             <div className="server-item pointer" onClick={openServerAdd}>

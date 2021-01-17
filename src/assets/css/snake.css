@@ -102,7 +102,7 @@ body {
 .navbar {
   width: 62px;
 
-  position: absolute;
+  position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
@@ -135,6 +135,14 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
+
+  border-left: 2px solid var(--paperColor);
+  transition: 400ms all ease;
+}
+
+.server-item-active {
+  border-left: 2px solid var(--blue);
+  transition: 400ms all ease;
 }
 
 .server-item .img {
@@ -148,12 +156,25 @@ body {
   transition: 400ms all ease;
 }
 
+.server-item .img img {
+  object-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: 400ms all ease;
+}
+
+.server-item .img:hover img {
+  object-position: center;
+  object-fit: cover;
+  border-radius: 35%;
+}
+
 .server-item .img:hover {
   background-color: var(--blue);
   border-radius: 35%;
 }
 
-.server-item-active .img {
+.server-item-active .img img {
   background-color: var(--blue);
   border-radius: 35%;
 }
@@ -204,6 +225,20 @@ body {
 
 .tab-spacer > :last-child {
   margin-right: 0;
+}
+
+.tab-spacer-y {
+}
+
+.tab-spacer-y > * {
+  margin: 20px 0;
+}
+.tab-spacer-y > :first-child {
+  margin-top: 0;
+}
+
+.tab-spacer-y > :last-child {
+  margin-bottom: 0;
 }
 
 /* Terminal */
@@ -315,6 +350,10 @@ body {
 
 .flex-center {
   justify-content: center;
+}
+
+.f-center-y {
+  place-items: center;
 }
 
 .f-right {
