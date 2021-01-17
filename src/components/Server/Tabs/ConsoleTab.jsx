@@ -30,8 +30,8 @@ const ConsoleTab = () => {
         setLog(empty);
     }
 
-    const handleCommand = (e) => {
-        updatelog(e.target.value);
+    const handleCommand = (value) => {
+        updatelog(value);
     }
 
     return (

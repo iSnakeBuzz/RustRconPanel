@@ -10,6 +10,10 @@ const Terminal = ({ value, handleCommand, handleClearConsole }) => {
         if (scrollRef) executeScroll();
     }, [value]);
 
+    const handleValue = (e) => {
+        if (e.key === 'Enter') handleCommand(e.target.value);
+    }
+
     return (
         <div className="terminal">
             <div id="content">
@@ -29,7 +33,7 @@ const Terminal = ({ value, handleCommand, handleClearConsole }) => {
                 <div>
                     <ArrowForwardIos />
                 </div>
-                <input className="w-100" onChange={handleCommand} />
+                <input className="w-100" onKeyPress={handleValue} />
             </div>
         </div>
     );
