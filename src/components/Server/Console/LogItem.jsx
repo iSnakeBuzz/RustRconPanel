@@ -1,12 +1,13 @@
 import React from 'react';
+import Moment from 'react-moment';
 
 const LogItem = ({ date, value }) => {
     return (
         <div className="flex">
-            <div style={{ marginRight: "10px" }}>
-                <Moment format="[hh:MM:DD]:">{date}</Moment>
+            <div style={{ paddingRight: "10px", wordBreak: 'normal' }}>
+                <Moment format="\[hh:mm:ss\]\:">{date.toISOString()}</Moment>
             </div>
-            <div>{value}</div>
+            <div style={{ wordWrap: "break-word" }}>{value}</div>
         </div>
     );
 };

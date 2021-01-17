@@ -23,7 +23,7 @@ const Chrome = ({ title, resize }) => {
             <Helmet>
                 <title>{title ? title : "Rust Server Panel"}</title>
             </Helmet>
-            <div className="chrome-tool">
+            <div className="chrome-tool noselect">
                 <div className="chrome-tool-inside">
 
                     <div className="chrome-tool-title">

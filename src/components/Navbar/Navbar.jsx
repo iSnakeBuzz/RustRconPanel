@@ -18,7 +18,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar">
+        <div className="navbar noselect">
             <Link to="/">
                 <div className="server-item">
                     <div className="img">

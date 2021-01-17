@@ -209,7 +209,7 @@ body {
 
   padding: 10px;
 
-  height: calc(100vh - 220px);
+  height: calc(100vh - 168px);
 
   background-color: var(--paperColor);
 }
@@ -217,12 +217,19 @@ body {
 .terminal #content {
   height: calc(100% - 30px);
   overflow-y: auto;
+  word-break: break-word;
 }
 
 .terminal-input {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.terminal-btns {
+  position: absolute;
+  top: 10px;
+  right: 25px;
 }
 
 .terminal-input div {
@@ -329,8 +336,14 @@ body {
   width: -webkit-fill-available;
 }
 
-.nobg {
-  background-color: #ffffff00 !important;
+/* Getted from https://bit.ly/3qs1m7h */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 /* Custom Scrollbar */

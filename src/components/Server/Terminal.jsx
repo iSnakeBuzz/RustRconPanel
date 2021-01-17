@@ -1,7 +1,8 @@
 import React from 'react';
-import { ArrowForwardIos } from '@material-ui/icons';
+import { ArrowForwardIos, Delete, Save } from '@material-ui/icons';
+import { IconButton, Tooltip } from '@material-ui/core';
 
-const Terminal = ({ value, handleCommand }) => {
+const Terminal = ({ value, handleCommand, handleClearConsole }) => {
     const scrollRef = React.useRef(undefined)
     const executeScroll = () => scrollRef.current.scrollIntoView()
 
@@ -14,6 +15,14 @@ const Terminal = ({ value, handleCommand }) => {
             <div id="content">
                 {value}
                 <div ref={scrollRef} />
+            </div>
+
+            <div className="terminal-btns">
+                <Tooltip title="Clear Console">
+                    <IconButton color="secondary" onClick={handleClearConsole} size="small">
+                        <Delete fontSize="inherit" />
+                    </IconButton>
+                </Tooltip>
             </div>
 
             <div className="terminal-input w-100">
