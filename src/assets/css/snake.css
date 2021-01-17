@@ -13,8 +13,14 @@ body {
 }
 
 .content main {
-  padding-left: 72px;
-  margin-top: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 30px);
+}
+
+.content .main_container {
+  padding-left: 62px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 /* Chrome tool */
@@ -94,7 +100,7 @@ body {
 /* Navbar */
 
 .navbar {
-  width: 72px;
+  width: 62px;
 
   position: absolute;
   z-index: 1;
@@ -163,6 +169,92 @@ body {
   margin-bottom: 0;
 }
 
+/* Server Page */
+
+.tab-content {
+  padding-top: 20px;
+}
+
+.tab-content > * {
+  margin: 20px 0;
+}
+
+.tab-content > :first-child {
+  margin-top: 0;
+}
+
+.tab-content > :last-child {
+  margin-bottom: 0;
+}
+
+.tab-spacer {
+}
+
+.tab-spacer > * {
+  margin: 0 5px;
+}
+.tab-spacer > :first-child {
+  margin-left: 0;
+}
+
+.tab-spacer > :last-child {
+  margin-right: 0;
+}
+
+/* Terminal */
+.terminal {
+  position: relative;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: small;
+
+  padding: 10px;
+
+  height: calc(100vh - 220px);
+
+  background-color: var(--paperColor);
+}
+
+.terminal #content {
+  height: calc(100% - 30px);
+  overflow-y: auto;
+}
+
+.terminal-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.terminal-input div {
+  position: absolute;
+  font-size: small;
+  top: 25%;
+  left: 5px;
+}
+
+.terminal-input div > * {
+  height: 17px;
+}
+
+.terminal-input input {
+  border: none;
+  outline: none;
+  font-size: small;
+
+  padding: 10px 30px;
+
+  margin: 0;
+
+  background-color: var(--paperColor-Light);
+
+  color: var(--white);
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+}
+
 /* Utilities */
 .ml-auto {
   margin-left: auto;
@@ -170,6 +262,14 @@ body {
 
 .mr-auto {
   margin-right: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
 }
 
 .paper {
@@ -197,9 +297,20 @@ body {
   background-color: var(--blue);
 }
 
+.btn:hover {
+  background-color: var(--blueLight);
+}
+
 .flex-center {
-  display: flex;
   justify-content: center;
+}
+
+.f-right {
+  justify-content: flex-end;
+}
+
+.flex {
+  display: flex;
 }
 
 .mt-1 {
@@ -215,9 +326,26 @@ body {
 }
 
 .w-100 {
-  width: 100%;
+  width: -webkit-fill-available;
 }
 
 .nobg {
   background-color: #ffffff00 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paperColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--paperColor-Light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--paperColor-hover);
 }

@@ -6,15 +6,12 @@ const isDev = require('electron-is-dev');
 let ADD_SERVER_WINDOW;
 
 /* IPC communicatino with FrontEnd */
-ipcMain.on('add_server', (e, args) => {
+ipcMain.on('add_server', (e, arg) => {
     /* Creating a window to add the server */
     if (!ADD_SERVER_WINDOW) {
         ADD_SERVER_WINDOW = new BrowserWindow({
-            maxWidth: 250,
-            maxHeight: 400,
-
             width: 250,
-            height: 400,
+            height: 450,
 
             darkTheme: true,
             center: true,
@@ -28,8 +25,15 @@ ipcMain.on('add_server', (e, args) => {
         /* Handling window close */
         ADD_SERVER_WINDOW.on('close', () => {
             ADD_SERVER_WINDOW = undefined;
-            ipcMain.emit('close_add_server', false)
+            updateServers();
         })
     } else e.returnValue = false;
 });
 
+const updateServers = () => {
+    let windows = BrowserWindow.getAllWindows();
+    mainWindow = windows[windows.length - 1];
+
+    console.log("Updating servers.", mainWindow)
+    mainWindow.webContents.postMessage('update_servers', 'ping');
+}

@@ -4,23 +4,18 @@ import HomeImage from '../../assets/images/Home.png'
 import PlusIcon from '../../assets/images/PlusIcon.svg'
 
 import { Link } from 'react-router-dom';
+import ServersContext from '../contexts/ServersContext';
 
-const electron = window?.require("electron")
+const electron = window.require("electron")
 const { ipcRenderer } = electron;
 
 const Navbar = () => {
 
-    const [opened, setOpened] = React.useState(false);
+    const { data, setData } = React.useContext(ServersContext)
 
     const openServerAdd = () => {
-        setOpened(ipcRenderer.sendSync('add_server', 'ping'));
+        ipcRenderer.sendSync('add_server', 'ping');
     }
-
-    React.useEffect(() => {
-        ipcRenderer.on('close_add_server', (e, arg) => {
-            setOpened(arg)
-        });
-    }, [])
 
     return (
         <div className="navbar">
@@ -32,12 +27,13 @@ const Navbar = () => {
                 </div>
             </Link>
 
-            <div className="flex-center">
+            <div className="flex flex-center">
                 <div className="divider" />
             </div>
 
-            {[0, 2, 3].map((number) => {
-                return (<ServerItem key={number} server={{ img: "https://i.imgur.com/7KMIMiS.png", id: number, name: `TestServer #${number}` }} />);
+            {data && JSON.parse(data).map((number, id) => {
+                console.log("Server:", number, id)
+                return (<ServerItem key={id} server={{ img: "https://i.imgur.com/7KMIMiS.png", id: id, name: `${number.name}` }} />);
             })}
 
             <div className="server-item pointer" onClick={openServerAdd}>

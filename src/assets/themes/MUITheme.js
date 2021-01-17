@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: "#b4b4b4"
+            main: "#23272a"
         }
     },
 
@@ -12,10 +12,6 @@ const theme = createMuiTheme({
             notchedOutline: {
                 borderColor: "#fff",
             },
-            
-            "&:hover": {
-                borderColor: "#b4b4b4"
-            }
         },
         MuiFormLabel: {
             root: {
@@ -26,6 +22,15 @@ const theme = createMuiTheme({
         MuiInputBase: {
             root: {
                 color: "#fff"
+            }
+        },
+
+        MuiTab: {
+            root: {
+                minWidth: "100px",
+                '@media (min-width: 0px)': {
+                    minWidth: "100px"
+                }
             }
         }
     }

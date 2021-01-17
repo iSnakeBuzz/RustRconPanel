@@ -12,11 +12,13 @@ html {
 
   --paperColor: #23272a;
   --paperColor-Light: #36393f;
+  --paperColor-hover: #2f3238;
 
   --blackGreen: #0c9215;
   --whiteGreen: #0fc91b;
 
   --blue: #6787e0;
+  --blueLight: #486fda;
 
   --white: white;
   --mutedColor: #b4b4b4;
